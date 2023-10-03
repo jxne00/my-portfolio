@@ -2,8 +2,9 @@ const Projects = [
   {
     title: 'Portfolio Website',
     imgpath: require('../assets/images/placeholder-1.png'),
-    overview: 'The current website you are on! Built using React.',
-    repoURL: 'https://github.com/jxne00/jxne00.github.io',
+    overview:
+      'The current website you are on! Built using React, and deployed using Netlify.',
+    repoURL: 'https://github.com/jxne00/my-portfolio',
     tags: ['React', 'Tailwind CSS'],
   },
   {
