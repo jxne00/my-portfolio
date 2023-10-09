@@ -15,11 +15,18 @@ function ProjectDetail() {
     navigate('/');
   };
 
+  if (!project) {
+    return <p>Project not found.</p>;
+  }
+
   return (
     <div className={`${theme} min-h-screen flex flex-col items-center`}>
       {/* Back Button */}
       <div className='w-full p-4 text-left'>
-        <button onClick={handleBackClick} className='text-blue-500'>
+        <button
+          onClick={handleBackClick}
+          className='text-blue-500'
+          aria-label='Back button'>
           &lt; Back
         </button>
       </div>
