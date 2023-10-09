@@ -26,6 +26,16 @@
   color: #60626e;
 }
 
+.neon-box {
+  border: 1px solid #08f;
+  box-shadow:
+  0 0 1px #08f, 
+  0 0 2px #08f, 
+  0 0 3px #f0f,
+  0 0 4px #f0f,
+  0 0 5px rgb(255, 0, 166);
+}
+
 
 /* .App {
   text-align: center;

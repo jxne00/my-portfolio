@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from '../theme/ThemeContext';
-import Header from '../components/Header';
+import Header from './Header';
 import Projects from '../assets/projectData';
-import ProjectGrid from '../components/ProjectGrid';
-import Footer from '../components/Footer';
+import ProjectGrid from './ProjectGrid';
+import Footer from './Footer';
 import '../App.css';
 
 function Home() {

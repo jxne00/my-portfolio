@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import { GitHub } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import '../App.css';
 
 import { ThemeContext } from '../theme/ThemeContext';
 
@@ -18,11 +19,11 @@ function ProjectGrid({ project, index }) {
   const containerClasses = [
     `grid-${theme}`,
     'p-5',
-    'rounded-lg',
     'shadow-md',
     'flex',
     'flex-col',
     'transition-transform',
+    'neon-box',
   ];
 
   // add hover effect only if project has detail page
