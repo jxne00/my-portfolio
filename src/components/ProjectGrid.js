@@ -1,5 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
 import { ThemeContext } from '../theme/ThemeContext';
 
 function ProjectGrid({ project, index }) {
@@ -23,23 +26,49 @@ function ProjectGrid({ project, index }) {
   // add hover effect only if project has detail page
   if (hasDetailPage) containerClasses.push('hover:scale-105');
 
+  // ref to check if grid is in view
+  const [ref, inView] = useInView({
+    threshold: 0.5,
+  });
+
+  // animation variants
+
+  const variants = {
+    hiddenTop: {
+      opacity: 0,
+      y: window.innerWidth <= 768 ? '-50px' : '-100px',
+    },
+    hiddenBtm: { opacity: 0, y: window.innerWidth <= 768 ? '50px' : '100px' },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <div className={containerClasses.join(' ')}>
       {/* direct to project details page on click */}
       <Link
         key={index}
         to={hasDetailPage ? `/${index}` : '#'}
-        className='flex-grow'
+        className='flex-grow mb-2'
         style={{
           cursor: hasDetailPage ? 'pointer' : 'default',
         }}>
-        <img
-          src={imgpath}
-          alt={`${title} preview`}
-          className='mb-4 rounded h-48 object-cover mx-auto'
-        />
+        <motion.div
+          ref={ref}
+          initial={index % 2 !== 0 ? 'hiddenTop' : 'hiddenBtm'}
+          animate={
+            inView ? 'visible' : index % 2 !== 0 ? 'hiddenTop' : 'hiddenBtn'
+          }
+          variants={variants}
+          transition={{ duration: 0.5 }}>
+          <img
+            src={imgpath}
+            alt={`${title} preview`}
+            className='mb-4 rounded h-48 object-cover mx-auto'
+          />
+        </motion.div>
 
         <h2 className='text-2xl font-semibold mb-3'>{title}</h2>
+
         <p className='mb-4 leading-tight'>{overview}</p>
       </Link>
 
@@ -49,7 +78,7 @@ function ProjectGrid({ project, index }) {
           {tags.map((tag) => (
             <span
               key={tag}
-              className='inline-block bg-green-400 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-800 dark:text-green-200'>
+              className='inline-block bg-cyan-700 text-cyan-100 font-mono text-xs font-medium mr-2 px-2.5 py-0.5 rounded '>
               {tag}
             </span>
           ))}

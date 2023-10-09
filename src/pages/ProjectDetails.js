@@ -32,42 +32,44 @@ function ProjectDetail() {
       </div>
 
       {/* Title */}
-      <h1 className='text-4xl font-bold text-center mt-5'>{project.title}</h1>
+      <h1 className='text-xl sm:text-2xl md:text-3xl font-serif font-bold text-center mt-5 mb-5'>
+        {project.title}
+      </h1>
 
       {/* Description */}
-      <p className='text-lg text-center mt-3 mb-5 max-w-xl'>
+      <p className='text-xs sm:text-sm md:text-lg text-center mb-5 w-5/6'>
         {project.description}
       </p>
-
-      {/* YouTube Embed */}
-      {project.yt_embed && (
-        <iframe
-          title={`${project.title} demo`}
-          width='90%'
-          height='500'
-          src={project.yt_embed}
-          frameborder='0'
-          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-          allowfullscreen
-          className='my-5'
-        />
-      )}
 
       {/* GitHub Repo Button */}
       <a
         href={project.repoURL}
         target='_blank'
         rel='noopener noreferrer'
-        className='text-white bg-blue-500 px-4 py-2 rounded mb-3 hover:bg-blue-600 transition'>
-        View on GitHub
+        className='text-white bg-black px-4 py-2 rounded mb-3 hover:bg-zinc-800 transition'>
+        Source Code
       </a>
 
+      {/* YouTube Embed */}
+      {project.yt_embed && (
+        <iframe
+          title={`${project.title} demo`}
+          width='80%'
+          height='500'
+          src={project.yt_embed}
+          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+          allowFullScreen
+          className='my-5'
+        />
+      )}
+
       {/* Tags */}
-      <div className='flex flex-wrap gap-2'>
+      <div className='flex flex-wrap gap-2 mt-3 self-end w-1/4'>
+        <span>Tags:</span>
         {project.tags.map((tag) => (
           <span
             key={tag}
-            className='text-xs bg-green-600 text-white px-2 py-1 rounded'>
+            className='text-xs bg-zinc-500 text-white px-2 py-1 rounded font-mono'>
             {tag}
           </span>
         ))}

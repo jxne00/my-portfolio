@@ -23,7 +23,7 @@ function Header() {
 
       {/* change the theme */}
       <button
-        className='flex items-center p-2 focus:outline-none focus:ring'
+        className='flex items-center p-2 focus:outline-none'
         onClick={toggleTheme}
         aria-label='Theme toggle button'>
         <img

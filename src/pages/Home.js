@@ -15,12 +15,15 @@ function Home() {
       <Header />
 
       <section id='portfolio' className={`pt-16 pb-32 ${theme}`}>
-        <h1 className='text-4xl font-semibold mb-2 text-center'>My projects</h1>
+        <h1 className='text-4xl font-serif font-semibold mb-4 text-center'>
+          My projects
+        </h1>
 
         <p className={`text-center leading-tight ${theme}-text-secondary`}>
-          Below are some of the projects I have worked on.
+          Below are some of my projects.
           <br />
-          Click on any of them to find out more!
+          Click on any of them to find out more, or click on the GitHub icon for
+          the source code.
         </p>
 
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-12'>
