@@ -3,6 +3,7 @@ import { ThemeContext } from '../theme/ThemeContext';
 import Header from '../components/Header';
 import Projects from '../assets/projectData';
 import ProjectGrid from '../components/ProjectGrid';
+import Footer from '../components/Footer';
 import '../App.css';
 
 function Home() {
@@ -32,6 +33,8 @@ function Home() {
           ))}
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }

@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+import { GitHub, LinkedIn } from '@mui/icons-material';
+
 import { ThemeContext } from '../theme/ThemeContext';
 import sunIcon from '../assets/images/moon-6694.svg';
 import moonIcon from '../assets/images/moon-2287.svg';
@@ -17,9 +19,29 @@ function Header() {
 
   return (
     <header className='bg-transparent absolute top-0 left-0 w-full flex items-center justify-between p-4 z-10'>
-      <span className={`italic font-bold text-lg ${textColor}`}>
-        June's Portfolio
-      </span>
+      <div className='flex items-center space-x-4'>
+        <span className={`italic font-bold font-mono text-lg ${textColor}`}>
+          June's Portfolio
+        </span>
+
+        {/* Github */}
+        <a
+          href='https://github.com/jxne00'
+          target='_blank'
+          rel='noopener noreferrer'
+          aria-label='GitHub'>
+          <GitHub className='hover:scale-125 transition-transform duration-300 cursor-pointer' />
+        </a>
+
+        {/* LinkedIn */}
+        <a
+          href='https://linkedin.com/in/jxne'
+          target='_blank'
+          rel='noopener noreferrer'
+          aria-label='LinkedIn'>
+          <LinkedIn className='hover:scale-125 transition-transform duration-300 cursor-pointer' />
+        </a>
+      </div>
 
       {/* change the theme */}
       <button
