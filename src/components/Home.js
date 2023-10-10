@@ -1,14 +1,15 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from '../theme/ThemeContext';
+import React from 'react';
+import { GitHub } from '@mui/icons-material';
+import { useTheme } from '../theme/ThemeContext';
+
 import Header from './Header';
 import Projects from '../assets/projectData';
 import ProjectGrid from './ProjectGrid';
 import Footer from './Footer';
 import '../App.css';
-import { GitHub } from '@mui/icons-material';
 
 function Home() {
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
 
   const projectList = Projects;
 
@@ -22,7 +23,7 @@ function Home() {
         </h1>
 
         <p className={`text-center ${theme}-text-secondary`}>
-          Below are some of the projects I have done.
+          Below are the projects I have done.
           <br />
           Click on <GitHub /> to view the source code of each project.
         </p>

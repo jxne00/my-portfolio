@@ -1,7 +1,7 @@
 const Projects = [
   {
-    title: 'Portfolio Website',
-    imgpath: require('../assets/images/placeholder-1.png'),
+    title: 'Portfolio',
+    imgpath: require('../assets/images/portfolio-img.png'),
     overview:
       'The current website you are on! Built using React, and deployed using Netlify.',
     repoURL: 'https://github.com/jxne00/my-portfolio',
@@ -52,11 +52,18 @@ const Projects = [
     imgpath: require('../assets/images/angrybird-img.png'),
     overview:
       'A simple Angry Birds game built using p5js JavaScript library. The goal is to knock all the cubes out of the screen.',
-    description:
-      'The Angry Birds game is a simple game developed using p5.js, where the player controls a slingshot to launch birds at a cube tower. The goal is to knock all the cubes out of the screen before the timer runs out.',
     repoURL: 'https://github.com/jxne00/angrybirds-game',
+    livedemo: 'https://jxne00.github.io/angrybirds-game/',
     tags: ['p5js'],
-    yt_embed: 'https://www.youtube.com/embed/jbcCKKeR8vE?si=ShAqkDVSOIcVcu3r',
+  },
+  {
+    title: 'Asteroid Game',
+    imgpath: require('../assets/images/asteroid-demo.gif'),
+    overview:
+      'A clone of the asteroids game, with the goal of destroying asteroids.',
+    repoURL: 'https://github.com/jxne00/asteroids-game',
+    livedemo: 'https://jxne00.github.io/asteroids-game/',
+    tags: ['p5js'],
   },
   {
     title: 'AudioMix',

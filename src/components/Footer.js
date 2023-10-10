@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from '../theme/ThemeContext';
-import { Email, ArticleOutlined } from '@mui/icons-material';
+import React from 'react';
+import { useTheme } from '../theme/ThemeContext';
+import { Email, Article } from '@mui/icons-material';
 import '../App.css';
 
 function Footer() {
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
 
   return (
-    <footer className='py-4'>
+    <footer className='py-4 px-2'>
       <div className='container mx-auto flex justify-between items-center'>
         <p className={`text-sm ${theme}-text-secondary`}>
           &copy; {new Date().getFullYear()} June Pang.
@@ -32,8 +32,8 @@ function Footer() {
             href='/' // TODO: add resume link
             // target='_blank'
             // rel='noopener noreferrer'
-            className={`text-sm ${theme}-text-secondary hover:scale-110 transition-transform duration-300 cursor-pointer px-4 py-2 rounded flex items-center`}>
-            <ArticleOutlined fontSize='small' /> Resume
+            className={`text-sm ${theme}-text-secondary hover:scale-110 transition-transform duration-300 cursor-pointer px-4 py-2 rounded flex items-center border`}>
+            <Article fontSize='small' /> &nbsp;Resume
           </a>
         </div>
       </div>

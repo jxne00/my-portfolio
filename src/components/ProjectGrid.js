@@ -1,24 +1,33 @@
-import React, { useContext, useState } from 'react';
-import { GitHub, ArticleOutlined } from '@mui/icons-material';
+import React, { useState } from 'react';
+import {
+  GitHub,
+  ArticleOutlined,
+  LaunchOutlined,
+  ReadMoreOutlined,
+} from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import '../App.css';
 
-import { ThemeContext } from '../theme/ThemeContext';
+import { useTheme } from '../theme/ThemeContext';
 import DetailsModal from './DetailsModal';
 
 function ProjectGrid({ project }) {
-  const { theme } = useContext(ThemeContext);
-  const { title, overview, imgpath, tags, repoURL, description, html_link } =
-    project;
+  const { theme } = useTheme();
+  const {
+    title,
+    overview,
+    imgpath,
+    tags,
+    repoURL,
+    description,
+    html_link,
+    livedemo,
+  } = project;
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-  // determine if project has "detail" page or "html_link"
-  const hasDetailPage = description;
-  const hasHTMLLink = html_link;
 
   // ref to check if grid is in view
   const [ref, inView] = useInView({
@@ -55,16 +64,14 @@ function ProjectGrid({ project }) {
 
       <div className='justify-between mt-auto'>
         {/* project tags & link to repo */}
-        <div className='flex items-center mb-3'>
-          <div className='flex space-x-2'>
-            {tags.map((tag) => (
-              <span
-                key={tag}
-                className='inline-block text-sm text-white font-semibold bg-slate-500 rounded shadow-sm px-3'>
-                {tag}
-              </span>
-            ))}
-          </div>
+        <div className='flex flex-wrap items-center mb-3 space-x-2 md:space-x-3'>
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              className='inline-block text-sm text-white font-semibold bg-slate-500 rounded shadow-sm px-2 md:px-3 md:py-0.5'>
+              {tag}
+            </span>
+          ))}
         </div>
 
         <div className='flex items-center gap-3 justify-end'>
@@ -76,12 +83,12 @@ function ProjectGrid({ project }) {
           />
 
           {/* modal to see more details */}
-          {hasDetailPage && (
+          {description && (
             <>
               <button
                 onClick={handleOpen}
                 className='bg-gradient-to-r from-violet-700 to-blue-700 hover:from-violet-500 hover:to-blue-500 rounded text-white font-semibold px-5 py-2 shadow-md transform transition hover:scale-105'>
-                Details
+                Details <ReadMoreOutlined />
               </button>
               <DetailsModal
                 project={project}
@@ -92,12 +99,20 @@ function ProjectGrid({ project }) {
           )}
 
           {/* link to html page */}
-          {hasHTMLLink && (
+          {html_link && (
             <button
               onClick={() => window.open(html_link, '_blank')}
-              className='bg-blue-900 hover:bg-blue-600 rounded text-white font-semibold px-5 py-2 shadow-md transform transition hover:scale-105'>
-              <ArticleOutlined />
-              &nbsp;Read
+              className='bg-indigo-900 hover:bg-blue-700 rounded text-white font-medium px-5 py-2 shadow-md transform transition hover:scale-105'>
+              <ArticleOutlined /> Read
+            </button>
+          )}
+
+          {/* link to live demo */}
+          {livedemo && (
+            <button
+              onClick={() => window.open(livedemo, '_blank')}
+              className='bg-gray-800 hover:bg-gray-600 rounded text-white font-medium px-3 py-2 shadow-md transform transition hover:scale-105'>
+              Live Demo <LaunchOutlined />
             </button>
           )}
         </div>

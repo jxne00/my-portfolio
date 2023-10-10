@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Modal from '@mui/material/Modal';
 import CancelIcon from '@mui/icons-material/Cancel';
 
 import '../App.css';
-import { ThemeContext } from '../theme/ThemeContext';
+import { useTheme } from '../theme/ThemeContext';
 
 function DetailsModal({ project, open, handleClose }) {
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const { title, description, repoURL, yt_embed } = project;
 
   return (
