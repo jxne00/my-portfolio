@@ -1,23 +1,34 @@
 import React from 'react';
-import { GitHub, LinkedIn, DarkMode, LightMode } from '@mui/icons-material';
+import {
+  GitHub,
+  LinkedIn,
+  DarkMode,
+  LightMode,
+  Email,
+} from '@mui/icons-material';
 
 import { useTheme } from '../theme/ThemeContext';
 
-function Header() {
+const Header = () => {
   const { theme, toggleTheme } = useTheme();
 
-  // set diff text gradients based on theme
-  const gradient =
-    theme === 'dark'
-      ? 'bg-gradient-to-r from-fuchsia-400 to-rose-400'
-      : 'bg-gradient-to-r from-fuchsia-800 to-rose-800';
+  // icon that links to href
+  const SocialLink = ({ href, label, icon }) => (
+    <a href={href} target='_blank' rel='noopener noreferrer' aria-label={label}>
+      <div className='hover:scale-125 transition-transform duration-300 cursor-pointer'>
+        {icon}
+      </div>
+    </a>
+  );
 
+  // props for theme icon
   const themeIconProps = {
     className:
       'hover:scale-125 transition-transform duration-300 cursor-pointer',
     onClick: toggleTheme,
   };
 
+  // icon that toggles the theme
   const themeIcon =
     theme === 'dark' ? (
       <LightMode {...themeIconProps} style={{ color: '#fb923c' }} />
@@ -26,36 +37,35 @@ function Header() {
     );
 
   return (
-    <header className='bg-transparent absolute top-0 left-0 w-full flex items-center justify-between p-4 z-10'>
+    <header
+      className={`fixed ${theme} absolute top-0 left-0 w-full flex items-center justify-between p-4 z-10`}>
       <div className='flex items-center space-x-4'>
-        <span
-          className={`italic font-bold text-lg ${gradient} bg-clip-text text-transparent`}>
-          June Pang
-        </span>
-
         {/* Github */}
-        <a
+        <SocialLink
           href='https://github.com/jxne00'
-          target='_blank'
-          rel='noopener noreferrer'
-          aria-label='GitHub'>
-          <GitHub className='hover:scale-125 transition-transform duration-300 cursor-pointer' />
-        </a>
+          label='GitHub'
+          icon={<GitHub />}
+        />
 
         {/* LinkedIn */}
-        <a
+        <SocialLink
           href='https://linkedin.com/in/jxne'
-          target='_blank'
-          rel='noopener noreferrer'
-          aria-label='LinkedIn'>
-          <LinkedIn className='hover:scale-125 transition-transform duration-300 cursor-pointer' />
-        </a>
+          label='LinkedIn'
+          icon={<LinkedIn />}
+        />
+
+        {/* Email */}
+        <SocialLink
+          href='mailto:june.pangg@gmail.com'
+          label='Email'
+          icon={<Email />}
+        />
       </div>
 
-      {/* change the theme */}
+      {/* button to toggle theme */}
       {themeIcon}
     </header>
   );
-}
+};
 
 export default Header;

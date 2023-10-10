@@ -1,11 +1,10 @@
 import React from 'react';
 import Modal from '@mui/material/Modal';
-import CancelIcon from '@mui/icons-material/Cancel';
+import { Cancel } from '@mui/icons-material';
 
-import '../App.css';
 import { useTheme } from '../theme/ThemeContext';
 
-function DetailsModal({ project, open, handleClose }) {
+const DetailsModal = ({ project, open, handleClose }) => {
   const { theme } = useTheme();
   const { title, description, repoURL, yt_embed } = project;
 
@@ -18,7 +17,7 @@ function DetailsModal({ project, open, handleClose }) {
       <div
         className={`absolute ${theme} top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 p-8 shadow-lg rounded-lg sm:w-11/12 flex flex-col items-center`}>
         {/* Close Button */}
-        <CancelIcon
+        <Cancel
           className='absolute top-3 right-3 cursor-pointer hover:text-zinc-500 transition'
           onClick={handleClose}
         />
@@ -60,6 +59,6 @@ function DetailsModal({ project, open, handleClose }) {
       </div>
     </Modal>
   );
-}
+};
 
 export default DetailsModal;

@@ -12,7 +12,7 @@ import '../App.css';
 import { useTheme } from '../theme/ThemeContext';
 import DetailsModal from './DetailsModal';
 
-function ProjectGrid({ project }) {
+const ProjectGrid = ({ project }) => {
   const { theme } = useTheme();
   const {
     title,
@@ -119,6 +119,6 @@ function ProjectGrid({ project }) {
       </div>
     </div>
   );
-}
+};
 
 export default ProjectGrid;
