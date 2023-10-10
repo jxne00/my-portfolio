@@ -5,6 +5,7 @@ import Projects from '../assets/projectData';
 import ProjectGrid from './ProjectGrid';
 import Footer from './Footer';
 import '../App.css';
+import { GitHub } from '@mui/icons-material';
 
 function Home() {
   const { theme } = useContext(ThemeContext);
@@ -20,11 +21,10 @@ function Home() {
           My projects
         </h1>
 
-        <p className={`text-center leading-tight ${theme}-text-secondary`}>
-          Below are some of my projects.
+        <p className={`text-center ${theme}-text-secondary`}>
+          Below are some of the projects I have done.
           <br />
-          Click on any of them to find out more, or click on the GitHub icon for
-          the source code.
+          Click on <GitHub /> to view the source code of each project.
         </p>
 
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-12'>

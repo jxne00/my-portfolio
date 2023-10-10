@@ -1,33 +1,24 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import Button from '@mui/material/Button';
-import { GitHub } from '@mui/icons-material';
+import React, { useContext, useState } from 'react';
+import { GitHub, ArticleOutlined } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import '../App.css';
 
 import { ThemeContext } from '../theme/ThemeContext';
+import DetailsModal from './DetailsModal';
 
-function ProjectGrid({ project, index }) {
+function ProjectGrid({ project }) {
   const { theme } = useContext(ThemeContext);
-  const { title, overview, imgpath, tags, repoURL, description } = project;
+  const { title, overview, imgpath, tags, repoURL, description, html_link } =
+    project;
 
-  // determine if project has a "detail" page
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  // determine if project has "detail" page or "html_link"
   const hasDetailPage = description;
-
-  // classes for main div container
-  const containerClasses = [
-    `grid-${theme}`,
-    'p-5',
-    'shadow-md',
-    'flex',
-    'flex-col',
-    'transition-transform',
-    'neon-box',
-  ];
-
-  // add hover effect only if project has detail page
-  if (hasDetailPage) containerClasses.push('hover:scale-105');
+  const hasHTMLLink = html_link;
 
   // ref to check if grid is in view
   const [ref, inView] = useInView({
@@ -40,68 +31,76 @@ function ProjectGrid({ project, index }) {
       opacity: 0,
       y: window.innerWidth <= 768 ? '-50px' : '-100px',
     },
-    hiddenBtm: { opacity: 0, y: window.innerWidth <= 768 ? '50px' : '100px' },
     visible: { opacity: 1, y: 0 },
   };
 
   return (
-    <div className={containerClasses.join(' ')}>
-      {/* direct to project details page on click */}
-      <Link
-        key={index}
-        to={hasDetailPage ? `/${index}` : '#'}
-        className='flex-grow mb-2'
-        style={{
-          cursor: hasDetailPage ? 'pointer' : 'default',
-        }}>
-        <motion.div
-          ref={ref}
-          initial={index % 2 !== 0 ? 'hiddenTop' : 'hiddenBtm'}
-          animate={
-            inView ? 'visible' : index % 2 !== 0 ? 'hiddenTop' : 'hiddenBtn'
-          }
-          variants={variants}
-          transition={{ duration: 0.5 }}>
-          <img
-            src={imgpath}
-            alt={`${title} preview`}
-            className='mb-4 rounded h-48 object-cover mx-auto'
-          />
-        </motion.div>
+    <div
+      className={`grid-${theme} flex-1 p-5 shadow-md flex flex-col transition-transform neon-box`}>
+      <motion.div
+        ref={ref}
+        animate={inView ? 'visible' : 'hiddenTop'}
+        variants={variants}
+        transition={{ duration: 0.5 }}>
+        <img
+          src={imgpath}
+          alt={`${title} preview`}
+          className='mb-4 h-48 object-cover mx-auto'
+        />
+      </motion.div>
 
-        <h2 className='text-2xl font-semibold mb-3'>{title}</h2>
+      <h2 className='text-2xl font-semibold mb-3'>{title}</h2>
 
-        <p className='mb-4 leading-tight'>{overview}</p>
-      </Link>
+      <p className='mb-4 leading-tight'>{overview}</p>
 
-      {/* project tags & link to repo */}
-      <div className='flex justify-between items-center mb-3'>
-        <div className='flex'>
-          {tags.map((tag) => (
-            <span
-              key={tag}
-              className='inline-block bg-cyan-700 text-cyan-100 font-mono text-xs font-medium mr-2 px-2.5 py-0.5 rounded '>
-              {tag}
-            </span>
-          ))}
+      <div className='justify-between mt-auto'>
+        {/* project tags & link to repo */}
+        <div className='flex items-center mb-3'>
+          <div className='flex space-x-2'>
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className='inline-block text-sm text-white font-semibold bg-slate-500 rounded shadow-sm px-3'>
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
 
-        <Button
-          variant='contained'
-          color='primary'
-          size='small'
-          endIcon={<GitHub />}
-          href={repoURL}
-          target='_blank'
-          rel='noopener noreferrer'
-          sx={{
-            backgroundColor: '#191102',
-            '&:hover': {
-              backgroundColor: '#414770', // on hover
-            },
-          }}>
-          Source
-        </Button>
+        <div className='flex items-center gap-3 justify-end'>
+          {/* link to repo */}
+          <GitHub
+            className='cursor-pointer transform transition hover:scale-110'
+            fontSize='large'
+            onClick={() => window.open(repoURL, '_blank')}
+          />
+
+          {/* modal to see more details */}
+          {hasDetailPage && (
+            <>
+              <button
+                onClick={handleOpen}
+                className='bg-gradient-to-r from-violet-700 to-blue-700 hover:from-violet-500 hover:to-blue-500 rounded text-white font-semibold px-5 py-2 shadow-md transform transition hover:scale-105'>
+                Details
+              </button>
+              <DetailsModal
+                project={project}
+                open={open}
+                handleClose={handleClose}
+              />
+            </>
+          )}
+
+          {/* link to html page */}
+          {hasHTMLLink && (
+            <button
+              onClick={() => window.open(html_link, '_blank')}
+              className='bg-blue-900 hover:bg-blue-600 rounded text-white font-semibold px-5 py-2 shadow-md transform transition hover:scale-105'>
+              <ArticleOutlined />
+              &nbsp;Read
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

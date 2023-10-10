@@ -8,8 +8,11 @@ import moonIcon from '../assets/images/moon-2287.svg';
 function Header() {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
-  // set diff text color based on theme
-  const textColor = theme === 'dark' ? 'text-slate-400' : 'text-blue-800';
+  // set diff text gradients based on theme
+  const gradient =
+    theme === 'dark'
+      ? 'bg-gradient-to-r from-fuchsia-400 to-rose-400'
+      : 'bg-gradient-to-r from-fuchsia-800 to-rose-800';
 
   // set diff icon based on theme
   const iconType =
@@ -20,8 +23,9 @@ function Header() {
   return (
     <header className='bg-transparent absolute top-0 left-0 w-full flex items-center justify-between p-4 z-10'>
       <div className='flex items-center space-x-4'>
-        <span className={`italic font-bold font-mono text-lg ${textColor}`}>
-          June's Portfolio
+        <span
+          className={`italic font-bold text-lg ${gradient} bg-clip-text text-transparent`}>
+          June Pang
         </span>
 
         {/* Github */}
