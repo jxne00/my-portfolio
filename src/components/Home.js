@@ -1,6 +1,7 @@
 import React from 'react';
 import { ExpandMore, LaunchOutlined } from '@mui/icons-material';
 import { useTheme } from '../theme/ThemeContext';
+import myresume from '../assets/pdf/my_resume.pdf';
 
 const Home = ({ scrollToProjects }) => {
   const { theme } = useTheme();
@@ -21,9 +22,9 @@ const Home = ({ scrollToProjects }) => {
           </span>
 
           <button
-            onClick={() => window.open('/', '_blank')}
+            onClick={() => window.open(myresume, '_blank')}
             className="bg-purple-800 hover:bg-purple-900 rounded-md text-white font-semibold px-3 py-2 shadow-md transform transition hover:scale-105">
-            <LaunchOutlined /> Resume (pending)
+            <LaunchOutlined /> Resume
           </button>
         </div>
 
