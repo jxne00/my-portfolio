@@ -1,4 +1,45 @@
 const Projects = [
+//   {
+//     title: 'Taskery',
+//     imgpath: require('../assets/images/placeholder-1.png'),
+//     overview:
+//       '(To be updated) A task management mobile application with social interaction features.',
+//     repoURL: '',
+//     tags: ['React Native', 'Expo', 'Firebase', 'Redux']
+//   },
+//   {
+//     title: 'Handwritten Digits',
+//     imgpath: require('../assets/images/placeholder-1.png'),
+//     overview: '(To be updated)',
+//     repoURL: '',
+//     tags: ['Machine Learning', 'Python']
+//   },
+//   {
+//     title: 'Music Visualizer',
+//     imgpath: require('../assets/images/placeholder-1.png'),
+//     overview: '(To be updated)',
+//     repoURL: '',
+//     livedemo: 'https://jxne00.github.io/music-visualizer/',
+//     tags: ['p5js']
+//   },
+//   {
+//     title: 'Web Audio App',
+//     imgpath: require('../assets/images/placeholder-1.png'),
+//     overview:
+//       '(To be updated) A web based audio application with a range of audio effects',
+//     repoURL: '',
+//     livedemo: 'https://jxne00.github.io/web_audio_app/',
+//     tags: ['p5js']
+//   },
+  {
+    title: 'Study Lounge',
+    imgpath: require('../assets/images/studylounge-img.png'),
+    overview:
+      'A virtual study space that provides a Pomodoro timer, To-Do list, note taking area, and a range of aesthetic backgrounds to choose from.',
+    repoURL: 'https://github.com/jxne00/study-lounge',
+    livedemo: 'https://study-lounge.netlify.app/',
+    tags: ['React', 'Next.js', 'Tailwind CSS']
+  },
   {
     title: 'Portfolio',
     imgpath: require('../assets/images/portfolio-img.png'),
