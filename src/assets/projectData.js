@@ -1,36 +1,56 @@
 const Projects = [
-//   {
-//     title: 'Taskery',
-//     imgpath: require('../assets/images/placeholder-1.png'),
-//     overview:
-//       '(To be updated) A task management mobile application with social interaction features.',
-//     repoURL: '',
-//     tags: ['React Native', 'Expo', 'Firebase', 'Redux']
-//   },
-//   {
-//     title: 'Handwritten Digits',
-//     imgpath: require('../assets/images/placeholder-1.png'),
-//     overview: '(To be updated)',
-//     repoURL: '',
-//     tags: ['Machine Learning', 'Python']
-//   },
-//   {
-//     title: 'Music Visualizer',
-//     imgpath: require('../assets/images/placeholder-1.png'),
-//     overview: '(To be updated)',
-//     repoURL: '',
-//     livedemo: 'https://jxne00.github.io/music-visualizer/',
-//     tags: ['p5js']
-//   },
-//   {
-//     title: 'Web Audio App',
-//     imgpath: require('../assets/images/placeholder-1.png'),
-//     overview:
-//       '(To be updated) A web based audio application with a range of audio effects',
-//     repoURL: '',
-//     livedemo: 'https://jxne00.github.io/web_audio_app/',
-//     tags: ['p5js']
-//   },
+  {
+    title: 'Taskery',
+    imgpath: require('../assets/images/taskery-img.png'),
+    overview: 'A task management mobile application with social interaction features.',
+    description:
+      'Taskery is a task manager mobile application developed in React Native. It offers features such as CRUD of tasks with the ability to add subtasks, tags and a category to each task. Unlike conventional task managers, Taskery introduces a blog-like community timeline allowing users to share progress, insights, and achievements, while also facilitating interaction among users through comments and likes. These features are designed to cultivate an environment where users can support and motivate one another in their task management endeavours.',
+    repoURL: 'https://github.com/jxne00/taskery',
+    tags: ['React Native', 'Expo', 'Firebase', 'Redux'],
+    yt_embed: 'https://www.youtube.com/embed/DLRpaws8b9I'
+  },
+  {
+    title: 'Sign Language Recognition',
+    imgpath: require('../assets/images/sign-lang-img.png'),
+    overview:
+      'Classifying American Sign Language (ASL) images using dense neural networks.',
+    repoURL: 'https://github.com/jxne00/sign-language-mnist',
+    tags: ['Machine Learning', 'Deep Learning', 'Python'],
+    html_link: 'https://jxne00.github.io/sign-language-mnist/'
+  },
+  {
+    title: 'photoview',
+    imgpath: require('../assets/images/placeholder-1.png'),
+    overview: 'A GUI-based photo browsing and printing application for Windows.',
+    repoURL: 'https://github.com/jxne00/photoview',
+    tags: ['Python', 'Tkinter']
+  },
+  {
+    title: 'Music Visualizer',
+    imgpath: require('../assets/images/music-vis-img.png'),
+    overview:
+      'A music visualizer that maps p5.js graphics to Meyda-analyzed audio features to create dynamic visual representations of the music.',
+    repoURL: 'https://github.com/jxne00/music-visualizer',
+    livedemo: 'https://jxne00.github.io/music-visualizer/',
+    tags: ['p5js', 'Meyda']
+  },
+  {
+    title: 'Handwritten Digits',
+    imgpath: require('../assets/images/ml-digits-img.png'),
+    overview:
+      'Exploring different machine learning models to classify handwritten digits.',
+    repoURL: 'https://github.com/jxne00/handwritten-digits',
+    tags: ['Machine Learning', 'Python'],
+    html_link: 'https://jxne00.github.io/handwritten-digits/'
+  },
+  {
+    title: 'Web Audio App',
+    imgpath: require('../assets/images/audio-app-img.jpeg'),
+    overview: 'A web based audio application with a range of audio effects',
+    repoURL: 'https://github.com/jxne00/web_audio_app',
+    livedemo: 'https://jxne00.github.io/web_audio_app/',
+    tags: ['p5js']
+  },
   {
     title: 'Study Lounge',
     imgpath: require('../assets/images/studylounge-img.png'),

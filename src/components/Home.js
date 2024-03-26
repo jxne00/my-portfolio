@@ -18,7 +18,7 @@ const Home = ({ scrollToProjects }) => {
         <div className="flex flex-col items-center justify-center space-y-10">
           <span className="italic font-bold text-4xl">
             Hi! I am{' '}
-            <span className={`${gradient} bg-clip-text text-transparent`}>JUNE</span>
+            <span className={`${gradient} bg-clip-text text-transparent`}>June</span>
           </span>
 
           <button
@@ -29,7 +29,7 @@ const Home = ({ scrollToProjects }) => {
         </div>
 
         <div
-          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center cursor-pointer transform transition hover:scale-105"
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center cursor-pointer transition-transform duration-200 hover:scale-110"
           onClick={scrollToProjects}>
           <span className={`${theme}-text-secondary`}>Projects</span>
           <ExpandMore fontSize="large" />
