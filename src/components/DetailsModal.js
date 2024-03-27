@@ -8,6 +8,40 @@ const DetailsModal = ({ project, open, handleClose }) => {
   const { theme } = useTheme();
   const { title, description, repoURL, yt_embed } = project;
 
+  // identify markdown links to render as anchor tags
+  const renderLinks = (text) => {
+    // Match markdown link pattern [text](url)
+    const pattern = new RegExp('\\[([^\\]]+)\\]\\((https?:\\/\\/[^\\s\\)]+)\\)', 'g');
+
+    const parts = [];
+    let lastIndex = 0;
+    text.replace(pattern, (match, linkText, url, index) => {
+      // push text before the markdown link
+      if (lastIndex !== index) {
+        parts.push(text.substring(lastIndex, index));
+      }
+      // push markdown link as an <a> tag
+      parts.push(
+        <a
+          key={index}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 underline">
+          {linkText}
+        </a>
+      );
+      lastIndex = index + match.length;
+    });
+
+    // push remaining text after the last link
+    if (lastIndex < text.length) {
+      parts.push(text.substring(lastIndex));
+    }
+
+    return parts;
+  };
+
   return (
     <Modal
       open={open}
@@ -28,7 +62,7 @@ const DetailsModal = ({ project, open, handleClose }) => {
         {/* Description */}
         <p
           className={`${theme}-text-secondary text-base leading-tight text-center mb-5 md:w-5/6`}>
-          {description}
+          {renderLinks(description)}
         </p>
 
         {/* YouTube Embed */}

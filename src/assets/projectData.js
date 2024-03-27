@@ -89,6 +89,17 @@ const Projects = [
     html_link: 'https://jxne00.github.io/brand-mentions-sentiment/Sentiment%20Analysis'
   },
   {
+    title: 'Spotify Charts',
+    imgpath: require('../assets/images/spotify-charts-img.png'),
+    overview:
+      "A node web app displaying Spotify's charting information queried from an SQL database.",
+    description:
+      'Spotify Charts is a web application that displays Spotify charting information queried from an SQL database. The application is built using Node.js and Express for the backend, and HTML, CSS, and EJS for the frontend. The application allows users to view the different tables in the database, as well as the SQL queries used to retrieve the data. The modelling process (cleaning and normalisation) of the database is also documented [here](https://github.com/jxne00/SpotifyCharts/blob/main/src/DADT%20midterm%20report.pdf).',
+    repoURL: 'https://github.com/jxne00/smartHomey',
+    tags: ['Node.js', 'Express', 'SQL'],
+    yt_embed: 'https://www.youtube.com/embed/mC8D7VYpJLM'
+  },
+  {
     title: 'Calculator App',
     imgpath: require('../assets/images/calculator-img.png'),
     overview:
