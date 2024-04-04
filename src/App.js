@@ -1,6 +1,5 @@
 import React from 'react';
 import { ThemeProvider } from './theme/ThemeContext';
-
 import Header from './components/Header';
 import Home from './components/Home';
 import ProjectSection from './components/Projects';

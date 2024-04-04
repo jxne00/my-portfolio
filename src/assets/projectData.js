@@ -19,15 +19,23 @@ const Projects = [
     html_link: 'https://jxne00.github.io/sign-language-mnist/'
   },
   {
+    title: 'Discover Palette',
+    imgpath: require('../assets/images/discoverpalette-img.png'),
+    overview: 'An application that helps in discovering different colour palettes.',
+    repoURL: 'https://github.com/jxne00/discover-palette',
+    tags: ['React', 'API'],
+    livedemo: 'https://jxne00.github.io/discover-palette/'
+  },
+  {
     title: 'photoview',
-    imgpath: require('../assets/images/placeholder-1.png'),
+    imgpath: require('../assets/images/photoview-img.jpg'),
     overview: 'A GUI-based photo browsing and printing application for Windows.',
     repoURL: 'https://github.com/jxne00/photoview',
     tags: ['Python', 'Tkinter']
   },
   {
     title: 'Music Visualizer',
-    imgpath: require('../assets/images/music-vis-img.png'),
+    imgpath: require('../assets/images/audiovis.gif'),
     overview:
       'A music visualizer that maps p5.js graphics to Meyda-analyzed audio features to create dynamic visual representations of the music.',
     repoURL: 'https://github.com/jxne00/music-visualizer',
@@ -120,7 +128,7 @@ const Projects = [
   },
   {
     title: 'Angry Birds Game',
-    imgpath: require('../assets/images/angrybird-img.png'),
+    imgpath: require('../assets/images/angrybird.gif'),
     overview:
       'A simple Angry Birds game built using p5js JavaScript library. The goal is to knock all the cubes out of the screen.',
     repoURL: 'https://github.com/jxne00/angrybirds-game',
