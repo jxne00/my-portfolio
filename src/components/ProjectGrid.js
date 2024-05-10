@@ -8,7 +8,6 @@ import {
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import '../App.css';
-
 import { useTheme } from '../theme/ThemeContext';
 import DetailsModal from './DetailsModal';
 
@@ -23,7 +22,7 @@ const ProjectGrid = ({ project }) => {
 
   // ref to check if grid is in view
   const [ref, inView] = useInView({
-    threshold: 0.2
+    threshold: 0.8
   });
 
   // animation variants

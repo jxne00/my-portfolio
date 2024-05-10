@@ -127,6 +127,25 @@ const Projects = [
     html_link: 'https://jxne00.github.io/uni-rank-analysis/uni-rank-analysis'
   },
   {
+    title: '3D Grid Waves',
+    imgpath: require('../assets/images/3DGridWaves.gif'),
+    overview:
+      'A p5.js web-based application that uses the sine function to dynamically animate a 3D grid of boxes.',
+    repoURL: 'https://github.com/jxne00/3d-grid-waves',
+    livedemo: 'https://jxne00.github.io/3d-grid-waves/',
+    tags: ['p5js']
+  },
+  {
+    title: 'Web Motion Piano',
+    imgpath: require('../assets/images/WebMotionPiano.gif'),
+    overview:
+      'An interactive p5.js web application that plays different chords based on webcam input.',
+    repoURL: 'https://github.com/jxne00/web-motion-piano',
+    livedemo: 'https://jxne00.github.io/web-motion-piano/',
+    tags: ['p5js']
+  },
+
+  {
     title: 'Angry Birds Game',
     imgpath: require('../assets/images/angrybird.gif'),
     overview:
